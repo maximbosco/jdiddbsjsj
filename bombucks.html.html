@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>be1.ru</title>
+</head>
+<body>
+<p>&lt;!DOCTYPE html&gt;<br />
+&lt;html lang=&quot;ru&quot;&gt;<br />
+&lt;head&gt;<br />
+&nbsp; &lt;meta charset=&quot;UTF-8&quot; /&gt;<br />
+&nbsp; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0&quot; /&gt;<br />
+&nbsp; &lt;title&gt;@GPT_gamer_bot &mdash; Bombucks Predictor&lt;/title&gt;<br />
+&nbsp; &lt;style&gt;<br />
+&nbsp; &nbsp; :root {<br />
+&nbsp; &nbsp; &nbsp; --ios-bg-blur: rgba(28,28,30,0.8);<br />
+&nbsp; &nbsp; &nbsp; --ios-primary: #0A84FF;<br />
+&nbsp; &nbsp; &nbsp; --ios-label: rgba(255,255,255,0.85);<br />
+&nbsp; &nbsp; &nbsp; --ios-card: rgba(120,120,128,0.2);<br />
+&nbsp; &nbsp; &nbsp; --cell-size: 48px;<br />
+&nbsp; &nbsp; &nbsp; --cell-gap: 8px;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; * {<br />
+&nbsp; &nbsp; &nbsp; margin:0;<br />
+&nbsp; &nbsp; &nbsp; padding:0;<br />
+&nbsp; &nbsp; &nbsp; box-sizing:border-box;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; body {<br />
+&nbsp; &nbsp; &nbsp; background: url(&#39;https://i.ibb.co/xS3sj8xq/IMG-2937.jpg&#39;) center/cover fixed;<br />
+&nbsp; &nbsp; &nbsp; font-family: -apple-system, sans-serif;<br />
+&nbsp; &nbsp; &nbsp; color: white; text-align: center;<br />
+&nbsp; &nbsp; &nbsp; min-height:100vh; display:flex; flex-direction:column;<br />
+&nbsp; &nbsp; &nbsp; align-items:center; justify-content:center;<br />
+&nbsp; &nbsp; &nbsp; padding:20px; backdrop-filter: blur(20px);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .overlay {<br />
+&nbsp; &nbsp; &nbsp; position: fixed; inset:0;<br />
+&nbsp; &nbsp; &nbsp; background: rgba(0,0,0,0.4);<br />
+&nbsp; &nbsp; &nbsp; z-index: 1;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-modal {<br />
+&nbsp; &nbsp; &nbsp; position: fixed; top:0; left:0; right:0; bottom:0;<br />
+&nbsp; &nbsp; &nbsp; background: rgba(0, 0, 0, 0.8);<br />
+&nbsp; &nbsp; &nbsp; display: flex; align-items: center; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; z-index: 2; flex-direction: column;<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(40px);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-modal h2 {<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; font-size: 22px;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 24px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-btn {<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; padding: 14px 28px;<br />
+&nbsp; &nbsp; &nbsp; margin: 8px;<br />
+&nbsp; &nbsp; &nbsp; font-size: 18px;<br />
+&nbsp; &nbsp; &nbsp; border-radius: 14px;<br />
+&nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: all 0.3s ease;<br />
+&nbsp; &nbsp; &nbsp; width: 200px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 500;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-btn:active {<br />
+&nbsp; &nbsp; &nbsp; background: rgba(255, 255, 255, 0.3);<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.96);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .header {<br />
+&nbsp; &nbsp; &nbsp; font-size: 26px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 16px;<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; z-index: 0;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .bombucks-header {<br />
+&nbsp; &nbsp; &nbsp; font-size: 32px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 700;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 16px;<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-primary);<br />
+&nbsp; &nbsp; &nbsp; text-shadow: 0 0 10px var(--ios-primary);<br />
+&nbsp; &nbsp; &nbsp; z-index: 0;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .controls {<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-bg-blur);<br />
+&nbsp; &nbsp; &nbsp; border:1px solid var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; border-radius:20px;<br />
+&nbsp; &nbsp; &nbsp; padding:20px; width:100%; max-width:360px;<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(30px);<br />
+&nbsp; &nbsp; &nbsp; box-shadow:0 8px 32px rgba(0,0,0,0.2);<br />
+&nbsp; &nbsp; &nbsp; margin-bottom:24px;<br />
+&nbsp; &nbsp; &nbsp; z-index: 0;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .size-selector {<br />
+&nbsp; &nbsp; &nbsp; display:flex; justify-content:center; align-items:center;<br />
+&nbsp; &nbsp; &nbsp; gap:16px; margin-bottom:20px;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .selector-btn {<br />
+&nbsp; &nbsp; &nbsp; width:44px; height:44px; border-radius:50%; border:none;<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-card); color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; font-size:24px; cursor:pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: transform .2s, background .2s;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .selector-btn:active {<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.92);<br />
+&nbsp; &nbsp; &nbsp; background: rgba(255,255,255,0.3);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .size-display {<br />
+&nbsp; &nbsp; &nbsp; font-size:20px; font-weight:600;<br />
+&nbsp; &nbsp; &nbsp; min-width:60px; color: var(--ios-label);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .signal-btn {<br />
+&nbsp; &nbsp; &nbsp; width:100%; padding:14px;<br />
+&nbsp; &nbsp; &nbsp; font-size:18px; font-weight:600;<br />
+&nbsp; &nbsp; &nbsp; color:white; background: var(--ios-primary);<br />
+&nbsp; &nbsp; &nbsp; border:none; border-radius:12px;<br />
+&nbsp; &nbsp; &nbsp; cursor:pointer; margin-bottom:8px;<br />
+&nbsp; &nbsp; &nbsp; box-shadow:0 4px 12px rgba(10,132,255,0.3);<br />
+&nbsp; &nbsp; &nbsp; transition:transform .2s, opacity .2s;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .signal-btn:active {<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.98);<br />
+&nbsp; &nbsp; &nbsp; opacity:0.9;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .grid {<br />
+&nbsp; &nbsp; &nbsp; display:grid; gap: var(--cell-gap);<br />
+&nbsp; &nbsp; &nbsp; justify-content:center;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .cell {<br />
+&nbsp; &nbsp; &nbsp; width: var(--cell-size); height: var(--cell-size);<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; border-radius:10px;<br />
+&nbsp; &nbsp; &nbsp; display:flex; align-items:center; justify-content:center;<br />
+&nbsp; &nbsp; &nbsp; font-size:24px; color:#FFD60A;<br />
+&nbsp; &nbsp; &nbsp; position:relative; overflow:hidden;<br />
+&nbsp; &nbsp; &nbsp; transition: background .3s, transform .2s;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .cell.flash {<br />
+&nbsp; &nbsp; &nbsp; background: rgba(255,214,10,0.3);<br />
+&nbsp; &nbsp; &nbsp; transform: scale(1.1);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &lt;/style&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;<br />
+&nbsp; &lt;div class=&quot;overlay&quot; id=&quot;overlay&quot;&gt;&lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;language-modal&quot; id=&quot;language-modal&quot;&gt;<br />
+&nbsp; &nbsp; &lt;h2&gt;Choose language / Выберите язык&lt;/h2&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;language-btn&quot; onclick=&quot;selectLang(&#39;ru&#39;)&quot;&gt;Русский&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;language-btn&quot; onclick=&quot;selectLang(&#39;en&#39;)&quot;&gt;English&lt;/button&gt;<br />
+&nbsp; &lt;/div&gt;</p>
+
+<p>&nbsp; &lt;div class=&quot;bombucks-header&quot; id=&quot;bombucks-header&quot;&gt;BOMBUCKS&lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;header&quot; id=&quot;header-text&quot;&gt;@GPT_gamer_bot&lt;/div&gt;</p>
+
+<p>&nbsp; &lt;div class=&quot;controls&quot;&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;size-selector&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;button class=&quot;selector-btn&quot; id=&quot;prev-size&quot;&gt;&minus;&lt;/button&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;div class=&quot;size-display&quot; id=&quot;size-display&quot;&gt;&lt;/div&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;button class=&quot;selector-btn&quot; id=&quot;next-size&quot;&gt;+&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;/div&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;signal-btn&quot; id=&quot;get-signal&quot;&gt;Получить сигнал&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;grid&quot; id=&quot;grid&quot;&gt;&lt;/div&gt;<br />
+&nbsp; &lt;/div&gt;</p>
+
+<p>&nbsp; &lt;script&gt;<br />
+&nbsp; &nbsp; const texts = {<br />
+&nbsp; &nbsp; &nbsp; ru: { header: &#39;@GPT_gamer_bot&#39;, signal: &#39;Получить сигнал&#39; },<br />
+&nbsp; &nbsp; &nbsp; en: { header: &#39;@GPT_gamer_bot&#39;, signal: &#39;Get Signal&#39; }<br />
+&nbsp; &nbsp; };</p>
+
+<p>&nbsp; &nbsp; function selectLang(lang) {<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;language-modal&#39;).style.display = &#39;none&#39;;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;overlay&#39;).style.display = &#39;none&#39;;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;header-text&#39;).textContent = texts[lang].header;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;get-signal&#39;).textContent = texts[lang].signal;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; const sizes = [<br />
+&nbsp; &nbsp; &nbsp; [2, 3], [3, 6], [4, 9], [5, 12], [6, 15]<br />
+&nbsp; &nbsp; ];<br />
+&nbsp; &nbsp; let currentSizeIndex = 0;<br />
+&nbsp; &nbsp; const sizeDisplay = document.getElementById(&#39;size-display&#39;);<br />
+&nbsp; &nbsp; const gridEl = document.getElementById(&#39;grid&#39;);</p>
+
+<p>&nbsp; &nbsp; function renderGrid() {<br />
+&nbsp; &nbsp; &nbsp; const [cols, rows] = sizes[currentSizeIndex];<br />
+&nbsp; &nbsp; &nbsp; sizeDisplay.textContent = `${cols}&times;${rows}`;<br />
+&nbsp; &nbsp; &nbsp; gridEl.style.gridTemplateColumns = `repeat(${cols}, var(--cell-size))`;<br />
+&nbsp; &nbsp; &nbsp; gridEl.innerHTML = &#39;&#39;;<br />
+&nbsp; &nbsp; &nbsp; for (let i = 0; i &lt; cols * rows; i++) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const cell = document.createElement(&#39;div&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; cell.className = &#39;cell&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; gridEl.appendChild(cell);<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; document.getElementById(&#39;prev-size&#39;).onclick = () =&gt; {<br />
+&nbsp; &nbsp; &nbsp; if (currentSizeIndex &gt; 0) currentSizeIndex--;<br />
+&nbsp; &nbsp; &nbsp; renderGrid();<br />
+&nbsp; &nbsp; };<br />
+&nbsp; &nbsp; document.getElementById(&#39;next-size&#39;).onclick = () =&gt; {<br />
+&nbsp; &nbsp; &nbsp; if (currentSizeIndex &lt; sizes.length - 1) currentSizeIndex++;<br />
+&nbsp; &nbsp; &nbsp; renderGrid();<br />
+&nbsp; &nbsp; };</p>
+
+<p>&nbsp; &nbsp; function generatePath() {<br />
+&nbsp; &nbsp; &nbsp; const cells = Array.from(gridEl.children);<br />
+&nbsp; &nbsp; &nbsp; const [cols, rows] = sizes[currentSizeIndex];<br />
+&nbsp; &nbsp; &nbsp; cells.forEach(c =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; c.textContent = &#39;&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; c.classList.remove(&#39;flash&#39;);<br />
+&nbsp; &nbsp; &nbsp; });</p>
+
+<p>&nbsp; &nbsp; &nbsp; const path = [];<br />
+&nbsp; &nbsp; &nbsp; for (let row = rows - 1; row &gt;= 0; row--) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const start = row * cols;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; path.push(start + Math.floor(Math.random() * cols));<br />
+&nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; path.forEach((idx, step) =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; setTimeout(() =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const cell = cells[idx];<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cell.classList.add(&#39;flash&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; setTimeout(() =&gt; { cell.textContent = &#39;★&#39;; }, 150);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; setTimeout(() =&gt; { cell.classList.remove(&#39;flash&#39;); }, 1000);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }, step * 300);<br />
+&nbsp; &nbsp; &nbsp; });<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; document.getElementById(&#39;get-signal&#39;).onclick = generatePath;</p>
+
+<p>&nbsp; &nbsp; renderGrid();<br />
+&nbsp; &lt;/script&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;</p>
+</body>
+</html>

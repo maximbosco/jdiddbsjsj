@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>be1.ru</title>
+</head>
+<body>
+<p>&lt;!DOCTYPE html&gt;<br />
+&lt;html&gt;<br />
+&lt;head&gt;<br />
+&nbsp; &nbsp; &lt;meta charset=&quot;UTF-8&quot;&gt;<br />
+&nbsp; &nbsp; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot;&gt;<br />
+&nbsp; &nbsp; &lt;title&gt;Games Collection&lt;/title&gt;<br />
+&nbsp; &nbsp; &lt;style&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; /* Основные стили для мобильных */<br />
+&nbsp; &nbsp; &nbsp; &nbsp; * {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; box-sizing: border-box;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -webkit-tap-highlight-color: transparent;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; body {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; margin: 0;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 10px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: #000;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; font-family: -apple-system, BlinkMacSystemFont, sans-serif;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .menu {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display: grid;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; gap: 12px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 15px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .game-btn {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: rgba(255,255,255,0.1);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: 1px solid rgba(255,255,255,0.2);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border-radius: 12px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 20px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: #0A84FF;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; font-size: 19px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; backdrop-filter: blur(20px);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transition: 0.2s;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .game-btn:active {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: rgba(10,132,255,0.3);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; transform: scale(0.98);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; iframe {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: fixed;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; top: 0;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; left: 0;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; width: 100%;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; height: 100%;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: #000;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; z-index: 100;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display: none;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; .back-btn {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; position: fixed;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; top: 15px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; left: 15px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; z-index: 101;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; background: rgba(0,0,0,0.7);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; border-radius: 8px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; padding: 10px 15px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; font-size: 16px;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; backdrop-filter: blur(10px);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; display: none;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &lt;/style&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;<br />
+&nbsp; &nbsp; &lt;!-- Главное меню --&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;menu&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;game-btn&quot; onclick=&quot;loadGame(&#39;mines&#39;)&quot;&gt;MINES&lt;/button&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;game-btn&quot; onclick=&quot;loadGame(&#39;pirates&#39;)&quot;&gt;PIRATES&lt;/button&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;game-btn&quot; onclick=&quot;loadGame(&#39;coinflip&#39;)&quot;&gt;COINFLIP&lt;/button&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;game-btn&quot; onclick=&quot;loadGame(&#39;penalty&#39;)&quot;&gt;PENALTY&lt;/button&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &lt;button class=&quot;game-btn&quot; onclick=&quot;loadGame(&#39;bombucks&#39;)&quot;&gt;BOMBUCKS&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;/div&gt;</p>
+
+<p>&nbsp; &nbsp; &lt;!-- Контейнер для игр --&gt;<br />
+&nbsp; &nbsp; &lt;iframe id=&quot;gameFrame&quot;&gt;&lt;/iframe&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;back-btn&quot; onclick=&quot;closeGame()&quot;&gt;&larr; Назад&lt;/button&gt;</p>
+
+<p>&nbsp; &nbsp; &lt;script&gt;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; function loadGame(game) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const frame = document.getElementById(&#39;gameFrame&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; frame.style.display = &#39;block&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; frame.src = game + &#39;.html&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.querySelector(&#39;.back-btn&#39;).style.display = &#39;block&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; function closeGame() {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&#39;gameFrame&#39;).style.display = &#39;none&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; document.querySelector(&#39;.back-btn&#39;).style.display = &#39;none&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &lt;/script&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;</p>
+</body>
+</html>

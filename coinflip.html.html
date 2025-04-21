@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>be1.ru</title>
+</head>
+<body>
+<p>&lt;!DOCTYPE html&gt;<br />
+&lt;html lang=&quot;ru&quot;&gt;<br />
+&lt;head&gt;<br />
+&nbsp; &lt;meta charset=&quot;UTF-8&quot; /&gt;<br />
+&nbsp; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;<br />
+&nbsp; &lt;title&gt;Coin Flip Predictor - @GPT_gamer_bot&lt;/title&gt;<br />
+&nbsp; &lt;style&gt;<br />
+&nbsp; &nbsp; :root {<br />
+&nbsp; &nbsp; &nbsp; --ios-bg-blur: rgba(28, 28, 30, 0.8);<br />
+&nbsp; &nbsp; &nbsp; --ios-primary: #0A84FF;<br />
+&nbsp; &nbsp; &nbsp; --ios-label: rgba(255, 255, 255, 0.85);<br />
+&nbsp; &nbsp; &nbsp; --ios-secondary: rgba(235, 235, 245, 0.6);<br />
+&nbsp; &nbsp; &nbsp; --ios-card: rgba(120, 120, 128, 0.2);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; * {<br />
+&nbsp; &nbsp; &nbsp; margin: 0;<br />
+&nbsp; &nbsp; &nbsp; padding: 0;<br />
+&nbsp; &nbsp; &nbsp; box-sizing: border-box;<br />
+&nbsp; &nbsp; &nbsp; -webkit-tap-highlight-color: transparent;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; body {<br />
+&nbsp; &nbsp; &nbsp; background: url(&#39;https://i.ibb.co/xS3sj8xq/IMG-2937.jpg&#39;) no-repeat center center fixed;<br />
+&nbsp; &nbsp; &nbsp; background-size: cover;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; min-height: 100vh;<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; flex-direction: column;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; padding: 20px;<br />
+&nbsp; &nbsp; &nbsp; font-family: -apple-system, BlinkMacSystemFont, &quot;SF Pro Display&quot;, system-ui, sans-serif;<br />
+&nbsp; &nbsp; &nbsp; text-align: center;<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(20px);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .overlay {<br />
+&nbsp; &nbsp; &nbsp; position: fixed;<br />
+&nbsp; &nbsp; &nbsp; inset: 0;<br />
+&nbsp; &nbsp; &nbsp; background: rgba(0, 0, 0, 0.4);<br />
+&nbsp; &nbsp; &nbsp; z-index: -1;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .header {<br />
+&nbsp; &nbsp; &nbsp; font-size: 28px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 24px;<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; letter-spacing: -0.5px;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .bombucks-header {<br />
+&nbsp; &nbsp; &nbsp; font-size: 32px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 700;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 24px;<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-primary);<br />
+&nbsp; &nbsp; &nbsp; text-shadow: 0 0 10px var(--ios-primary);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .controls-container {<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-bg-blur);<br />
+&nbsp; &nbsp; &nbsp; border-radius: 24px;<br />
+&nbsp; &nbsp; &nbsp; padding: 24px;<br />
+&nbsp; &nbsp; &nbsp; width: 100%;<br />
+&nbsp; &nbsp; &nbsp; max-width: 380px;<br />
+&nbsp; &nbsp; &nbsp; border: 1px solid var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(30px);<br />
+&nbsp; &nbsp; &nbsp; -webkit-backdrop-filter: blur(30px);<br />
+&nbsp; &nbsp; &nbsp; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);<br />
+&nbsp; &nbsp; &nbsp; position: relative;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .coin {<br />
+&nbsp; &nbsp; &nbsp; font-size: 80px;<br />
+&nbsp; &nbsp; &nbsp; position: absolute;<br />
+&nbsp; &nbsp; &nbsp; left: 50%;<br />
+&nbsp; &nbsp; &nbsp; transform: translateX(-50%);<br />
+&nbsp; &nbsp; &nbsp; top: 50%;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: transform 0.5s ease;<br />
+&nbsp; &nbsp; &nbsp; text-shadow: 0 0 8px rgba(10, 132, 255, 0.7);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .coin.flip {<br />
+&nbsp; &nbsp; &nbsp; transform: rotateY(1800deg);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .result {<br />
+&nbsp; &nbsp; &nbsp; font-size: 24px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; margin-top: 160px;<br />
+&nbsp; &nbsp; &nbsp; text-shadow: 0 0 8px rgba(10, 132, 255, 0.7);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .signal-button {<br />
+&nbsp; &nbsp; &nbsp; width: 100%;<br />
+&nbsp; &nbsp; &nbsp; padding: 16px;<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-primary);<br />
+&nbsp; &nbsp; &nbsp; border-radius: 14px;<br />
+&nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; font-size: 18px;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 20px;<br />
+&nbsp; &nbsp; &nbsp; transition: all 0.3s ease;<br />
+&nbsp; &nbsp; &nbsp; box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .signal-button:active {<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.98);<br />
+&nbsp; &nbsp; &nbsp; opacity: 0.9;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-modal {<br />
+&nbsp; &nbsp; &nbsp; position: fixed;<br />
+&nbsp; &nbsp; &nbsp; top: 0;<br />
+&nbsp; &nbsp; &nbsp; left: 0;<br />
+&nbsp; &nbsp; &nbsp; right: 0;<br />
+&nbsp; &nbsp; &nbsp; bottom: 0;<br />
+&nbsp; &nbsp; &nbsp; background: rgba(0, 0, 0, 0.8);<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; z-index: 100;<br />
+&nbsp; &nbsp; &nbsp; flex-direction: column;<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(40px);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-modal h2 {<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; font-size: 22px;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 24px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-btn {<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; padding: 14px 28px;<br />
+&nbsp; &nbsp; &nbsp; margin: 8px;<br />
+&nbsp; &nbsp; &nbsp; font-size: 18px;<br />
+&nbsp; &nbsp; &nbsp; border-radius: 14px;<br />
+&nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: all 0.3s ease;<br />
+&nbsp; &nbsp; &nbsp; width: 200px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 500;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-btn:active {<br />
+&nbsp; &nbsp; &nbsp; background: rgba(255, 255, 255, 0.3);<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.96);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &lt;/style&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;<br />
+&nbsp; &lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;language-modal&quot; id=&quot;language-modal&quot;&gt;<br />
+&nbsp; &nbsp; &lt;h2&gt;Choose language / Выберите язык&lt;/h2&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;language-btn&quot; onclick=&quot;selectLang(&#39;ru&#39;)&quot;&gt;Русский&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;language-btn&quot; onclick=&quot;selectLang(&#39;en&#39;)&quot;&gt;English&lt;/button&gt;<br />
+&nbsp; &lt;/div&gt;</p>
+
+<p>&nbsp; &lt;div class=&quot;bombucks-header&quot; id=&quot;bombucks-header&quot;&gt;COINFLIP&lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;header&quot; id=&quot;header-text&quot;&gt;@GPT_gamer_bot&lt;/div&gt;</p>
+
+<p>&nbsp; &lt;div class=&quot;controls-container&quot;&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;coin&quot; id=&quot;coin&quot;&gt;🪙&lt;/div&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;signal-button&quot; id=&quot;flip-button&quot;&gt;Подбросить монетку&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;result&quot; id=&quot;result&quot;&gt;Результат: &lt;/div&gt;<br />
+&nbsp; &lt;/div&gt;</p>
+
+<p>&nbsp; &lt;script&gt;<br />
+&nbsp; &nbsp; let currentLanguage = &#39;ru&#39;;<br />
+&nbsp; &nbsp; let lastResult = &#39;&#39;;<br />
+&nbsp; &nbsp; let streakCount = 0;<br />
+&nbsp; &nbsp; const translations = {<br />
+&nbsp; &nbsp; &nbsp; ru: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; header: &#39;@GPT_gamer_bot&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; flipCoin: &#39;Подбросить монетку&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; chooseLanguage: &#39;Выберите язык&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; result: &#39;Результат:&#39;<br />
+&nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; en: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; header: &#39;@GPT_gamer_bot&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; flipCoin: &#39;Flip the coin&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; chooseLanguage: &#39;Choose language&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; result: &#39;Result:&#39;<br />
+&nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; results: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; ru: [&#39;Орел&#39;, &#39;Решка&#39;],<br />
+&nbsp; &nbsp; &nbsp; &nbsp; en: [&#39;Heads&#39;, &#39;Tails&#39;]<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; };</p>
+
+<p>&nbsp; &nbsp; function selectLang(lang) {<br />
+&nbsp; &nbsp; &nbsp; currentLanguage = lang;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;language-modal&#39;).style.display = &#39;none&#39;;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;header-text&#39;).textContent = translations[lang].header;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;flip-button&#39;).textContent = translations[lang].flipCoin;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;result&#39;).textContent = translations[lang].result;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; function updateResult(result) {<br />
+&nbsp; &nbsp; &nbsp; if (result === lastResult) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; streakCount++;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&#39;result&#39;).textContent = `${translations[currentLanguage].result} ${result} x${streakCount}`;<br />
+&nbsp; &nbsp; &nbsp; } else {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; lastResult = result;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; streakCount = 1;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; document.getElementById(&#39;result&#39;).textContent = `${translations[currentLanguage].result} ${result}`;<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; document.getElementById(&#39;flip-button&#39;).addEventListener(&#39;click&#39;, () =&gt; {<br />
+&nbsp; &nbsp; &nbsp; const coin = document.getElementById(&#39;coin&#39;);<br />
+&nbsp; &nbsp; &nbsp; const resultText = document.getElementById(&#39;result&#39;);<br />
+&nbsp; &nbsp; &nbsp; coin.classList.add(&#39;flip&#39;);<br />
+&nbsp; &nbsp; &nbsp;&nbsp;<br />
+&nbsp; &nbsp; &nbsp; setTimeout(() =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; coin.classList.remove(&#39;flip&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const result = Math.random() &lt; 0.5 ? translations.results[currentLanguage][0] : translations.results[currentLanguage][1];<br />
+&nbsp; &nbsp; &nbsp; &nbsp; updateResult(result);<br />
+&nbsp; &nbsp; &nbsp; }, 1000);<br />
+&nbsp; &nbsp; });<br />
+&nbsp; &lt;/script&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;</p>
+</body>
+</html>

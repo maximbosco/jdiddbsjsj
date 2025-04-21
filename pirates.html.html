@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>be1.ru</title>
+</head>
+<body>
+<p>&lt;!DOCTYPE html&gt;<br />
+&lt;html lang=&quot;ru&quot;&gt;<br />
+&lt;head&gt;<br />
+&nbsp; &lt;meta charset=&quot;UTF-8&quot; /&gt;<br />
+&nbsp; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;/&gt;<br />
+&nbsp; &lt;title&gt;Brawl Pirates Predictor&lt;/title&gt;<br />
+&nbsp; &lt;style&gt;<br />
+&nbsp; &nbsp; /* Language Modal */<br />
+&nbsp; &nbsp; .lang-modal {<br />
+&nbsp; &nbsp; &nbsp; position: fixed;<br />
+&nbsp; &nbsp; &nbsp; top: 0;<br />
+&nbsp; &nbsp; &nbsp; left: 0;<br />
+&nbsp; &nbsp; &nbsp; width: 100%;<br />
+&nbsp; &nbsp; &nbsp; height: 100%;<br />
+&nbsp; &nbsp; &nbsp; background: rgba(0,0,0,0.9);<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; z-index: 1000;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp;&nbsp;<br />
+&nbsp; &nbsp; .lang-buttons {<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; gap: 20px;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp;&nbsp;<br />
+&nbsp; &nbsp; .lang-btn {<br />
+&nbsp; &nbsp; &nbsp; background: #0A84FF;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; padding: 20px 40px;<br />
+&nbsp; &nbsp; &nbsp; font-size: 20px;<br />
+&nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; border-radius: 12px;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: transform 0.2s;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp;&nbsp;<br />
+&nbsp; &nbsp; .lang-btn:hover {<br />
+&nbsp; &nbsp; &nbsp; transform: scale(1.05);<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; body {<br />
+&nbsp; &nbsp; &nbsp; margin: 0;<br />
+&nbsp; &nbsp; &nbsp; font-family: -apple-system, BlinkMacSystemFont, &quot;SF Pro Display&quot;, system-ui, sans-serif;<br />
+&nbsp; &nbsp; &nbsp; background: url(&#39;https://i.ibb.co/xS3sj8xq/IMG-2937.jpg&#39;) no-repeat center center fixed;<br />
+&nbsp; &nbsp; &nbsp; background-size: cover;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; text-align: center;<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; flex-direction: column;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; min-height: 100vh;<br />
+&nbsp; &nbsp; &nbsp; padding: 20px;<br />
+&nbsp; &nbsp; &nbsp; box-sizing: border-box;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; /* New Animated Title */<br />
+&nbsp; &nbsp; .main-title {<br />
+&nbsp; &nbsp; &nbsp; color: #0A84FF;<br />
+&nbsp; &nbsp; &nbsp; font-size: 42px;<br />
+&nbsp; &nbsp; &nbsp; text-shadow: 0 0 15px rgba(10, 132, 255, 0.5);<br />
+&nbsp; &nbsp; &nbsp; margin: 20px 0;<br />
+&nbsp; &nbsp; &nbsp; animation: titleGlow 2s ease-in-out infinite;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; @keyframes titleGlow {<br />
+&nbsp; &nbsp; &nbsp; 0%, 100% { text-shadow: 0 0 15px rgba(10, 132, 255, 0.5); }<br />
+&nbsp; &nbsp; &nbsp; 50% { text-shadow: 0 0 25px rgba(10, 132, 255, 0.8), 0 0 35px rgba(10, 132, 255, 0.6); }<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; .shells-container {<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; gap: 40px;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 30px;<br />
+&nbsp; &nbsp; &nbsp; padding-top: 30px;<br />
+&nbsp; &nbsp; &nbsp; position: relative;<br />
+&nbsp; &nbsp; &nbsp; z-index: 1;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; /* Dark gray window removed */</p>
+
+<p>&nbsp; &nbsp; .shell {<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; flex-direction: column;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; font-size: 60px;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: transform 0.2s ease;<br />
+&nbsp; &nbsp; &nbsp; user-select: none;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; /* New Shell Animation */<br />
+&nbsp; &nbsp; @keyframes shellShake {<br />
+&nbsp; &nbsp; &nbsp; 0% { transform: translateY(0) rotate(0); }<br />
+&nbsp; &nbsp; &nbsp; 25% { transform: translateY(-10px) rotate(10deg); }<br />
+&nbsp; &nbsp; &nbsp; 50% { transform: translateY(5px) rotate(-10deg); }<br />
+&nbsp; &nbsp; &nbsp; 75% { transform: translateY(-5px) rotate(5deg); }<br />
+&nbsp; &nbsp; &nbsp; 100% { transform: translateY(0) rotate(0); }<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; .shaking {<br />
+&nbsp; &nbsp; &nbsp; animation: shellShake 0.4s ease-in-out;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; .crystal {<br />
+&nbsp; &nbsp; &nbsp; font-size: 30px;<br />
+&nbsp; &nbsp; &nbsp; height: 30px;<br />
+&nbsp; &nbsp; &nbsp; margin-top: 5px;<br />
+&nbsp; &nbsp; &nbsp; opacity: 0;<br />
+&nbsp; &nbsp; &nbsp; transition: opacity 0.3s ease;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; .shell.selected {<br />
+&nbsp; &nbsp; &nbsp; transform: translateY(-20px);<br />
+&nbsp; &nbsp; &nbsp; filter: drop-shadow(0 0 5px white);<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; .shell.selected .crystal {<br />
+&nbsp; &nbsp; &nbsp; opacity: 1;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; .highlight .crystal {<br />
+&nbsp; &nbsp; &nbsp; opacity: 1 !important;<br />
+&nbsp; &nbsp; &nbsp; animation: reveal 0.6s ease forwards;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; @keyframes reveal {<br />
+&nbsp; &nbsp; &nbsp; 0% { transform: scale(1); }<br />
+&nbsp; &nbsp; &nbsp; 50% { transform: scale(1.4); }<br />
+&nbsp; &nbsp; &nbsp; 100% { transform: scale(1); }<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; .button {<br />
+&nbsp; &nbsp; &nbsp; background: #0A84FF;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; padding: 14px 28px;<br />
+&nbsp; &nbsp; &nbsp; font-size: 18px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; border-radius: 14px;<br />
+&nbsp; &nbsp; &nbsp; cursor: not-allowed;<br />
+&nbsp; &nbsp; &nbsp; opacity: 0.6;<br />
+&nbsp; &nbsp; &nbsp; transition: all 0.3s ease;<br />
+&nbsp; &nbsp; &nbsp; box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3);<br />
+&nbsp; &nbsp; &nbsp; margin-top: 30px;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; .button.active {<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; opacity: 1;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &lt;/style&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;</p>
+
+<p>&nbsp; &lt;!-- Language Selection Modal --&gt;<br />
+&nbsp; &lt;div class=&quot;lang-modal&quot; id=&quot;langModal&quot;&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;lang-buttons&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;button class=&quot;lang-btn&quot; onclick=&quot;setLanguage(&#39;ru&#39;)&quot;&gt;Русский&lt;/button&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;button class=&quot;lang-btn&quot; onclick=&quot;setLanguage(&#39;en&#39;)&quot;&gt;English&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;/div&gt;<br />
+&nbsp; &lt;/div&gt;</p>
+
+<p>&nbsp; &lt;h1 class=&quot;main-title&quot;&gt;BRAWL PIRATES&lt;/h1&gt;<br />
+&nbsp; &lt;h1 data-lang=&quot;title&quot;&gt;@GPT_gamer_bot&lt;/h1&gt;</p>
+
+<p>&nbsp; &lt;div class=&quot;shells-container&quot; id=&quot;shells&quot;&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;shell&quot; data-index=&quot;0&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; 💀<br />
+&nbsp; &nbsp; &nbsp; &lt;div class=&quot;crystal&quot;&gt;&diams;️&lt;/div&gt;<br />
+&nbsp; &nbsp; &lt;/div&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;shell&quot; data-index=&quot;1&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; 💀<br />
+&nbsp; &nbsp; &nbsp; &lt;div class=&quot;crystal&quot;&gt;&diams;️&lt;/div&gt;<br />
+&nbsp; &nbsp; &lt;/div&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;shell&quot; data-index=&quot;2&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; 💀<br />
+&nbsp; &nbsp; &nbsp; &lt;div class=&quot;crystal&quot;&gt;&diams;️&lt;/div&gt;<br />
+&nbsp; &nbsp; &lt;/div&gt;<br />
+&nbsp; &lt;/div&gt;</p>
+
+<p>&nbsp; &lt;button id=&quot;actionButton&quot; class=&quot;button&quot; data-lang=&quot;choose_skull&quot;&gt;&lt;/button&gt;</p>
+
+<p>&nbsp; &lt;script&gt;<br />
+&nbsp; &nbsp; const langStrings = {<br />
+&nbsp; &nbsp; &nbsp; ru: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; title: &quot;@GPT_gamer_bot&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; choose_skull: &quot;Выберите череп&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; shuffle: &quot;Перемешать&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; again: &quot;Ещё раз&quot;<br />
+&nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; en: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; title: &quot;@GPT_gamer_bot&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; choose_skull: &quot;Choose a skull&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; shuffle: &quot;Shuffle&quot;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; again: &quot;Play again&quot;<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; };</p>
+
+<p>&nbsp; &nbsp; let currentLang = &#39;ru&#39;;<br />
+&nbsp; &nbsp; const shells = document.querySelectorAll(&#39;.shell&#39;);<br />
+&nbsp; &nbsp; const button = document.getElementById(&#39;actionButton&#39;);<br />
+&nbsp; &nbsp; let selectedShell = null;<br />
+&nbsp; &nbsp; let phase = &#39;choose&#39;;</p>
+
+<p>&nbsp; &nbsp; function setLanguage(lang) {<br />
+&nbsp; &nbsp; &nbsp; currentLang = lang;<br />
+&nbsp; &nbsp; &nbsp; document.querySelector(&#39;.lang-modal&#39;).style.display = &#39;none&#39;;<br />
+&nbsp; &nbsp; &nbsp; updateTexts();<br />
+&nbsp; &nbsp; &nbsp; resetGame();<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; function updateTexts() {<br />
+&nbsp; &nbsp; &nbsp; document.querySelectorAll(&#39;[data-lang]&#39;).forEach(el =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const key = el.dataset.lang;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; el.textContent = langStrings[currentLang][key];<br />
+&nbsp; &nbsp; &nbsp; });<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; shells.forEach(shell =&gt; {<br />
+&nbsp; &nbsp; &nbsp; shell.addEventListener(&#39;click&#39;, () =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if (phase !== &#39;choose&#39;) return;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; shells.forEach(s =&gt; s.classList.remove(&#39;selected&#39;));<br />
+&nbsp; &nbsp; &nbsp; &nbsp; shell.classList.add(&#39;selected&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; selectedShell = parseInt(shell.dataset.index);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; button.textContent = langStrings[currentLang].shuffle;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; button.classList.add(&#39;active&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; button.disabled = false;<br />
+&nbsp; &nbsp; &nbsp; });<br />
+&nbsp; &nbsp; });</p>
+
+<p>&nbsp; &nbsp; button.addEventListener(&#39;click&#39;, () =&gt; {<br />
+&nbsp; &nbsp; &nbsp; if (phase === &#39;choose&#39; &amp;&amp; selectedShell !== null) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; phase = &#39;shuffle&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; button.classList.remove(&#39;active&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; button.disabled = true;</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; shells.forEach(shell =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; shell.classList.remove(&#39;selected&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; shell.classList.add(&#39;shaking&#39;); // Add shake animation<br />
+&nbsp; &nbsp; &nbsp; &nbsp; });</p>
+
+<p>&nbsp; &nbsp; &nbsp; &nbsp; shuffleShells(() =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; revealCrystal();<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; button.textContent = langStrings[currentLang].again;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; button.classList.add(&#39;active&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; button.disabled = false;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; phase = &#39;done&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; shells.forEach(shell =&gt; shell.classList.remove(&#39;shaking&#39;));<br />
+&nbsp; &nbsp; &nbsp; &nbsp; });</p>
+
+<p>&nbsp; &nbsp; &nbsp; } else if (phase === &#39;done&#39;) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; resetGame();<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; });</p>
+
+<p>&nbsp; &nbsp; function shuffleShells(callback) {<br />
+&nbsp; &nbsp; &nbsp; const container = document.getElementById(&#39;shells&#39;);<br />
+&nbsp; &nbsp; &nbsp; let count = 0;</p>
+
+<p>&nbsp; &nbsp; &nbsp; const interval = setInterval(() =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const shuffled = Array.from(shells).sort(() =&gt; Math.random() - 0.5);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; shuffled.forEach((el) =&gt; container.appendChild(el));<br />
+&nbsp; &nbsp; &nbsp; &nbsp; count++;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; if (count &gt;= 20) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; clearInterval(interval);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; callback();<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; }, 100);<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; function revealCrystal() {<br />
+&nbsp; &nbsp; &nbsp; const randomIndex = Math.floor(Math.random() * 3);<br />
+&nbsp; &nbsp; &nbsp; shells.forEach(s =&gt; s.classList.remove(&#39;highlight&#39;));<br />
+&nbsp; &nbsp; &nbsp; shells[randomIndex].classList.add(&#39;highlight&#39;);<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; function resetGame() {<br />
+&nbsp; &nbsp; &nbsp; shells.forEach(shell =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; shell.classList.remove(&#39;selected&#39;, &#39;highlight&#39;);<br />
+&nbsp; &nbsp; &nbsp; });<br />
+&nbsp; &nbsp; &nbsp; selectedShell = null;<br />
+&nbsp; &nbsp; &nbsp; phase = &#39;choose&#39;;<br />
+&nbsp; &nbsp; &nbsp; button.textContent = langStrings[currentLang].choose_skull;<br />
+&nbsp; &nbsp; &nbsp; button.classList.remove(&#39;active&#39;);<br />
+&nbsp; &nbsp; &nbsp; button.disabled = true;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &lt;/script&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;</p>
+</body>
+</html>

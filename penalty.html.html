@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>be1.ru</title>
+</head>
+<body>
+<p>&lt;!DOCTYPE html&gt;<br />
+&lt;html lang=&quot;ru&quot;&gt;<br />
+&lt;head&gt;<br />
+&nbsp; &lt;meta charset=&quot;UTF-8&quot; /&gt;<br />
+&nbsp; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;<br />
+&nbsp; &lt;title&gt;PENALTY - @GPT_gamer_bot&lt;/title&gt;<br />
+&nbsp; &lt;style&gt;<br />
+&nbsp; &nbsp; :root {<br />
+&nbsp; &nbsp; &nbsp; --ios-primary: #0A84FF;<br />
+&nbsp; &nbsp; &nbsp; --ios-label: rgba(255, 255, 255, 0.85);<br />
+&nbsp; &nbsp; &nbsp; --ios-card: rgba(120, 120, 128, 0.2);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; * {<br />
+&nbsp; &nbsp; &nbsp; margin: 0;<br />
+&nbsp; &nbsp; &nbsp; padding: 0;<br />
+&nbsp; &nbsp; &nbsp; box-sizing: border-box;<br />
+&nbsp; &nbsp; &nbsp; -webkit-tap-highlight-color: transparent;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; body {<br />
+&nbsp; &nbsp; &nbsp; background: url(&#39;https://i.ibb.co/xS3sj8xq/IMG-2937.jpg&#39;) no-repeat center center fixed;<br />
+&nbsp; &nbsp; &nbsp; background-size: cover;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; min-height: 100vh;<br />
+&nbsp; &nbsp; &nbsp; font-family: -apple-system, BlinkMacSystemFont, &quot;SF Pro Display&quot;, system-ui, sans-serif;<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; flex-direction: column;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(20px);<br />
+&nbsp; &nbsp; &nbsp; padding: 20px;<br />
+&nbsp; &nbsp; &nbsp; text-align: center;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .overlay {<br />
+&nbsp; &nbsp; &nbsp; position: fixed;<br />
+&nbsp; &nbsp; &nbsp; inset: 0;<br />
+&nbsp; &nbsp; &nbsp; background: rgba(0, 0, 0, 0.4);<br />
+&nbsp; &nbsp; &nbsp; z-index: -1;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .main-title {<br />
+&nbsp; &nbsp; &nbsp; font-size: 36px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 800;<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-primary);<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 12px;<br />
+&nbsp; &nbsp; &nbsp; letter-spacing: 2px;<br />
+&nbsp; &nbsp; &nbsp; animation: glowText 2s ease-in-out infinite alternate;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; @keyframes glowText {<br />
+&nbsp; &nbsp; &nbsp; 0% {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; text-shadow: 0 0 3px var(--ios-primary), 0 0 5px var(--ios-primary), 0 0 8px var(--ios-primary);<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; 100% {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; text-shadow: 0 0 5px var(--ios-primary), 0 0 8px var(--ios-primary), 0 0 12px var(--ios-primary);<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .header {<br />
+&nbsp; &nbsp; &nbsp; font-size: 22px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 20px;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .controls-container {<br />
+&nbsp; &nbsp; &nbsp; background: rgba(28, 28, 30, 0.8);<br />
+&nbsp; &nbsp; &nbsp; border-radius: 24px;<br />
+&nbsp; &nbsp; &nbsp; padding: 24px;<br />
+&nbsp; &nbsp; &nbsp; width: 100%;<br />
+&nbsp; &nbsp; &nbsp; max-width: 400px;<br />
+&nbsp; &nbsp; &nbsp; border: 1px solid var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(30px);<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; flex-direction: column;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; gap: 20px;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .signal-button {<br />
+&nbsp; &nbsp; &nbsp; width: 100%;<br />
+&nbsp; &nbsp; &nbsp; padding: 16px;<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-primary);<br />
+&nbsp; &nbsp; &nbsp; border-radius: 14px;<br />
+&nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; font-size: 18px;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: 0.3s ease;<br />
+&nbsp; &nbsp; &nbsp; box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .signal-button:active {<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.98);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .goal-icon {<br />
+&nbsp; &nbsp; &nbsp; font-size: 80px;<br />
+&nbsp; &nbsp; &nbsp; margin-top: -10px;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .goal-grid {<br />
+&nbsp; &nbsp; &nbsp; display: grid;<br />
+&nbsp; &nbsp; &nbsp; grid-template-columns: repeat(5, 1fr);<br />
+&nbsp; &nbsp; &nbsp; grid-template-rows: repeat(3, 1fr);<br />
+&nbsp; &nbsp; &nbsp; gap: 12px;<br />
+&nbsp; &nbsp; &nbsp; margin-top: 10px;<br />
+&nbsp; &nbsp; &nbsp; justify-items: center;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .cell {<br />
+&nbsp; &nbsp; &nbsp; width: 60px;<br />
+&nbsp; &nbsp; &nbsp; height: 60px;<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; border-radius: 12px;<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; font-size: 28px;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; position: relative;<br />
+&nbsp; &nbsp; &nbsp; overflow: hidden;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .ball {<br />
+&nbsp; &nbsp; &nbsp; position: relative;<br />
+&nbsp; &nbsp; &nbsp; z-index: 2;<br />
+&nbsp; &nbsp; &nbsp; animation: pop 0.3s ease;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .ball-glow {<br />
+&nbsp; &nbsp; &nbsp; position: absolute;<br />
+&nbsp; &nbsp; &nbsp; width: 44px;<br />
+&nbsp; &nbsp; &nbsp; height: 44px;<br />
+&nbsp; &nbsp; &nbsp; background: radial-gradient(circle, rgba(0,255,0,0.6) 0%, rgba(0,255,0,0) 70%);<br />
+&nbsp; &nbsp; &nbsp; border-radius: 50%;<br />
+&nbsp; &nbsp; &nbsp; z-index: 1;<br />
+&nbsp; &nbsp; &nbsp; animation: glowFade 0.6s ease;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; @keyframes pop {<br />
+&nbsp; &nbsp; &nbsp; 0% { transform: scale(0); opacity: 0; }<br />
+&nbsp; &nbsp; &nbsp; 100% { transform: scale(1); opacity: 1; }<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; @keyframes glowFade {<br />
+&nbsp; &nbsp; &nbsp; 0% { opacity: 0; transform: scale(0.5); }<br />
+&nbsp; &nbsp; &nbsp; 100% { opacity: 1; transform: scale(1); }<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-modal {<br />
+&nbsp; &nbsp; &nbsp; position: fixed;<br />
+&nbsp; &nbsp; &nbsp; top: 0;<br />
+&nbsp; &nbsp; &nbsp; left: 0;<br />
+&nbsp; &nbsp; &nbsp; right: 0;<br />
+&nbsp; &nbsp; &nbsp; bottom: 0;<br />
+&nbsp; &nbsp; &nbsp; background: rgba(0, 0, 0, 0.8);<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; z-index: 100;<br />
+&nbsp; &nbsp; &nbsp; flex-direction: column;<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(40px);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-modal h2 {<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; font-size: 22px;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 24px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-btn {<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; padding: 14px 28px;<br />
+&nbsp; &nbsp; &nbsp; margin: 8px;<br />
+&nbsp; &nbsp; &nbsp; font-size: 18px;<br />
+&nbsp; &nbsp; &nbsp; border-radius: 14px;<br />
+&nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: all 0.3s ease;<br />
+&nbsp; &nbsp; &nbsp; width: 200px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 500;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-btn:active {<br />
+&nbsp; &nbsp; &nbsp; background: rgba(255, 255, 255, 0.3);<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.96);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &lt;/style&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;<br />
+&nbsp; &lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;language-modal&quot; id=&quot;language-modal&quot;&gt;<br />
+&nbsp; &nbsp; &lt;h2&gt;Choose language / Выберите язык&lt;/h2&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;language-btn&quot; onclick=&quot;selectLang(&#39;ru&#39;)&quot;&gt;Русский&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;language-btn&quot; onclick=&quot;selectLang(&#39;en&#39;)&quot;&gt;English&lt;/button&gt;<br />
+&nbsp; &lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;main-title&quot; id=&quot;title-text&quot;&gt;PENALTY&lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;header&quot; id=&quot;header-text&quot;&gt;@GPT_gamer_bot&lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;controls-container&quot;&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;signal-button&quot; id=&quot;get-signal&quot;&gt;ПОЛУЧИТЬ СИГНАЛ&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;goal-icon&quot;&gt;🥅&lt;/div&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;goal-grid&quot; id=&quot;goal-grid&quot;&gt;&lt;/div&gt;<br />
+&nbsp; &lt;/div&gt;<br />
+&nbsp; &lt;script&gt;<br />
+&nbsp; &nbsp; const goalGrid = document.getElementById(&#39;goal-grid&#39;);<br />
+&nbsp; &nbsp; const cells = [];<br />
+&nbsp; &nbsp; const translations = {<br />
+&nbsp; &nbsp; &nbsp; ru: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; header: &#39;@GPT_gamer_bot&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; getSignal: &#39;ПОЛУЧИТЬ СИГНАЛ&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; chooseLanguage: &#39;Выберите язык&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; title: &#39;PENALTY&#39;<br />
+&nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; en: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; header: &#39;@GPT_gamer_bot&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; getSignal: &#39;GET SIGNAL&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; chooseLanguage: &#39;Choose language&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; title: &#39;PENALTY&#39;<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; };<br />
+&nbsp; &nbsp; function selectLang(lang) {<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;language-modal&#39;).style.display = &#39;none&#39;;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;header-text&#39;).textContent = translations[lang].header;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;get-signal&#39;).textContent = translations[lang].getSignal;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;title-text&#39;).textContent = translations[lang].title;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; function initGoalGrid() {<br />
+&nbsp; &nbsp; &nbsp; goalGrid.innerHTML = &#39;&#39;;<br />
+&nbsp; &nbsp; &nbsp; cells.length = 0;<br />
+&nbsp; &nbsp; &nbsp; for (let i = 0; i &lt; 15; i++) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const cell = document.createElement(&#39;div&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; cell.className = &#39;cell&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; cells.push(cell);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; goalGrid.appendChild(cell);<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; function revealShot() {<br />
+&nbsp; &nbsp; &nbsp; cells.forEach(cell =&gt; cell.innerHTML = &#39;&#39;);<br />
+&nbsp; &nbsp; &nbsp; const index = Math.floor(Math.random() * cells.length);<br />
+&nbsp; &nbsp; &nbsp; const glow = document.createElement(&#39;div&#39;);<br />
+&nbsp; &nbsp; &nbsp; glow.className = &#39;ball-glow&#39;;<br />
+&nbsp; &nbsp; &nbsp; const ball = document.createElement(&#39;span&#39;);<br />
+&nbsp; &nbsp; &nbsp; ball.textContent = &#39;⚽️&#39;;<br />
+&nbsp; &nbsp; &nbsp; ball.className = &#39;ball&#39;;<br />
+&nbsp; &nbsp; &nbsp; cells[index].appendChild(glow);<br />
+&nbsp; &nbsp; &nbsp; cells[index].appendChild(ball);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; document.getElementById(&#39;get-signal&#39;).addEventListener(&#39;click&#39;, revealShot);<br />
+&nbsp; &nbsp; initGoalGrid();<br />
+&nbsp; &lt;/script&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;</p>
+</body>
+</html>

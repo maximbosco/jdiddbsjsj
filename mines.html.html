@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>be1.ru</title>
+</head>
+<body>
+<p>&lt;!DOCTYPE html&gt;<br />
+&lt;html lang=&quot;ru&quot;&gt;<br />
+&lt;head&gt;<br />
+&nbsp; &lt;meta charset=&quot;UTF-8&quot; /&gt;<br />
+&nbsp; &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;<br />
+&nbsp; &lt;title&gt;MINES - @GPT_gamer_bot&lt;/title&gt;<br />
+&nbsp; &lt;style&gt;<br />
+&nbsp; &nbsp; :root {<br />
+&nbsp; &nbsp; &nbsp; --ios-bg-blur: rgba(28, 28, 30, 0.8);<br />
+&nbsp; &nbsp; &nbsp; --ios-primary: #0A84FF;<br />
+&nbsp; &nbsp; &nbsp; --ios-label: rgba(255, 255, 255, 0.85);<br />
+&nbsp; &nbsp; &nbsp; --ios-secondary: rgba(235, 235, 245, 0.6);<br />
+&nbsp; &nbsp; &nbsp; --ios-card: rgba(120, 120, 128, 0.2);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; * {<br />
+&nbsp; &nbsp; &nbsp; margin: 0;<br />
+&nbsp; &nbsp; &nbsp; padding: 0;<br />
+&nbsp; &nbsp; &nbsp; box-sizing: border-box;<br />
+&nbsp; &nbsp; &nbsp; -webkit-tap-highlight-color: transparent;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; body {<br />
+&nbsp; &nbsp; &nbsp; background: url(&#39;https://i.ibb.co/xS3sj8xq/IMG-2937.jpg&#39;) no-repeat center center fixed;<br />
+&nbsp; &nbsp; &nbsp; background-size: cover;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; min-height: 100vh;<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; flex-direction: column;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; padding: 20px;<br />
+&nbsp; &nbsp; &nbsp; font-family: -apple-system, BlinkMacSystemFont, &quot;SF Pro Display&quot;, system-ui, sans-serif;<br />
+&nbsp; &nbsp; &nbsp; text-align: center;<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(20px);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .overlay {<br />
+&nbsp; &nbsp; &nbsp; position: fixed;<br />
+&nbsp; &nbsp; &nbsp; inset: 0;<br />
+&nbsp; &nbsp; &nbsp; background: rgba(0, 0, 0, 0.4);<br />
+&nbsp; &nbsp; &nbsp; z-index: -1;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .header {<br />
+&nbsp; &nbsp; &nbsp; font-size: 32px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 10px;<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-primary); /* Меняем цвет на синий */<br />
+&nbsp; &nbsp; &nbsp; letter-spacing: -0.5px;<br />
+&nbsp; &nbsp; &nbsp; text-shadow: 0 0 10px #0A84FF, 0 0 20px #0A84FF, 0 0 30px #0A84FF; /* Добавлено свечение */<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .subheader {<br />
+&nbsp; &nbsp; &nbsp; font-size: 32px; /* Такой же размер шрифта, как у заголовка MINES */<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; margin-top: 5px;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .controls-container {<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-bg-blur);<br />
+&nbsp; &nbsp; &nbsp; border-radius: 24px;<br />
+&nbsp; &nbsp; &nbsp; padding: 24px;<br />
+&nbsp; &nbsp; &nbsp; width: 100%;<br />
+&nbsp; &nbsp; &nbsp; max-width: 380px;<br />
+&nbsp; &nbsp; &nbsp; border: 1px solid var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(30px);<br />
+&nbsp; &nbsp; &nbsp; -webkit-backdrop-filter: blur(30px);<br />
+&nbsp; &nbsp; &nbsp; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .mines-selector {<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; gap: 20px;<br />
+&nbsp; &nbsp; &nbsp; margin: 24px 0;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .selector-btn {<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; width: 50px;<br />
+&nbsp; &nbsp; &nbsp; height: 50px;<br />
+&nbsp; &nbsp; &nbsp; font-size: 24px;<br />
+&nbsp; &nbsp; &nbsp; border-radius: 50%;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .selector-btn:active {<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.92);<br />
+&nbsp; &nbsp; &nbsp; background: rgba(255, 255, 255, 0.3);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .mines-count {<br />
+&nbsp; &nbsp; &nbsp; font-size: 24px;<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; min-width: 40px;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .signal-button {<br />
+&nbsp; &nbsp; &nbsp; width: 100%;<br />
+&nbsp; &nbsp; &nbsp; padding: 16px;<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-primary);<br />
+&nbsp; &nbsp; &nbsp; border-radius: 14px;<br />
+&nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; &nbsp; font-size: 18px;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 20px;<br />
+&nbsp; &nbsp; &nbsp; transition: all 0.3s ease;<br />
+&nbsp; &nbsp; &nbsp; box-shadow: 0 4px 12px rgba(10, 132, 255, 0.3);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .signal-button:active {<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.98);<br />
+&nbsp; &nbsp; &nbsp; opacity: 0.9;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .game-grid {<br />
+&nbsp; &nbsp; &nbsp; display: grid;<br />
+&nbsp; &nbsp; &nbsp; grid-template-columns: repeat(5, 1fr);<br />
+&nbsp; &nbsp; &nbsp; gap: 12px;<br />
+&nbsp; &nbsp; &nbsp; margin-top: 24px;<br />
+&nbsp; &nbsp; &nbsp; width: 100%;<br />
+&nbsp; &nbsp; &nbsp; justify-items: center;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .cell {<br />
+&nbsp; &nbsp; &nbsp; width: 56px;<br />
+&nbsp; &nbsp; &nbsp; height: 56px;<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; border-radius: 12px;<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; font-size: 24px;<br />
+&nbsp; &nbsp; &nbsp; color: white;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);<br />
+&nbsp; &nbsp; &nbsp; overflow: hidden;<br />
+&nbsp; &nbsp; &nbsp; position: relative;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .cell::after {<br />
+&nbsp; &nbsp; &nbsp; content: &#39;&#39;;<br />
+&nbsp; &nbsp; &nbsp; position: absolute;<br />
+&nbsp; &nbsp; &nbsp; inset: 0;<br />
+&nbsp; &nbsp; &nbsp; background: rgba(255, 255, 255, 0.1);<br />
+&nbsp; &nbsp; &nbsp; opacity: 0;<br />
+&nbsp; &nbsp; &nbsp; transition: opacity 0.3s ease;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .cell:active::after {<br />
+&nbsp; &nbsp; &nbsp; opacity: 1;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .cell.revealed {<br />
+&nbsp; &nbsp; &nbsp; background: rgba(100, 200, 100, 0.3);<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.95);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-modal {<br />
+&nbsp; &nbsp; &nbsp; position: fixed;<br />
+&nbsp; &nbsp; &nbsp; top: 0;<br />
+&nbsp; &nbsp; &nbsp; left: 0;<br />
+&nbsp; &nbsp; &nbsp; right: 0;<br />
+&nbsp; &nbsp; &nbsp; bottom: 0;<br />
+&nbsp; &nbsp; &nbsp; background: rgba(0, 0, 0, 0.8);<br />
+&nbsp; &nbsp; &nbsp; display: flex;<br />
+&nbsp; &nbsp; &nbsp; align-items: center;<br />
+&nbsp; &nbsp; &nbsp; justify-content: center;<br />
+&nbsp; &nbsp; &nbsp; z-index: 100;<br />
+&nbsp; &nbsp; &nbsp; flex-direction: column;<br />
+&nbsp; &nbsp; &nbsp; backdrop-filter: blur(40px);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-modal h2 {<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; font-size: 22px;<br />
+&nbsp; &nbsp; &nbsp; margin-bottom: 24px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 600;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-btn {<br />
+&nbsp; &nbsp; &nbsp; background: var(--ios-card);<br />
+&nbsp; &nbsp; &nbsp; color: var(--ios-label);<br />
+&nbsp; &nbsp; &nbsp; padding: 14px 28px;<br />
+&nbsp; &nbsp; &nbsp; margin: 8px;<br />
+&nbsp; &nbsp; &nbsp; font-size: 18px;<br />
+&nbsp; &nbsp; &nbsp; border-radius: 14px;<br />
+&nbsp; &nbsp; &nbsp; border: none;<br />
+&nbsp; &nbsp; &nbsp; cursor: pointer;<br />
+&nbsp; &nbsp; &nbsp; transition: all 0.3s ease;<br />
+&nbsp; &nbsp; &nbsp; width: 200px;<br />
+&nbsp; &nbsp; &nbsp; font-weight: 500;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; .language-btn:active {<br />
+&nbsp; &nbsp; &nbsp; background: rgba(255, 255, 255, 0.3);<br />
+&nbsp; &nbsp; &nbsp; transform: scale(0.96);<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &lt;/style&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;<br />
+&nbsp; &lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;language-modal&quot; id=&quot;language-modal&quot;&gt;<br />
+&nbsp; &nbsp; &lt;h2&gt;Choose language / Выберите язык&lt;/h2&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;language-btn&quot; onclick=&quot;selectLang(&#39;ru&#39;)&quot;&gt;Русский&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;language-btn&quot; onclick=&quot;selectLang(&#39;en&#39;)&quot;&gt;English&lt;/button&gt;<br />
+&nbsp; &lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;header&quot; id=&quot;header-text&quot;&gt;MINES&lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;subheader&quot;&gt;@GPT_gamer_bot&lt;/div&gt;<br />
+&nbsp; &lt;div class=&quot;controls-container&quot;&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;mines-selector&quot;&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;button class=&quot;selector-btn&quot; id=&quot;decrease-mines&quot;&gt;&minus;&lt;/button&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;div class=&quot;mines-count&quot; id=&quot;mines-count&quot;&gt;3&lt;/div&gt;<br />
+&nbsp; &nbsp; &nbsp; &lt;button class=&quot;selector-btn&quot; id=&quot;increase-mines&quot;&gt;+&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;/div&gt;<br />
+&nbsp; &nbsp; &lt;button class=&quot;signal-button&quot; id=&quot;get-signal&quot;&gt;ПОЛУЧИТЬ СИГНАЛ&lt;/button&gt;<br />
+&nbsp; &nbsp; &lt;div class=&quot;game-grid&quot; id=&quot;game-grid&quot;&gt;&lt;/div&gt;<br />
+&nbsp; &lt;/div&gt;<br />
+&nbsp; &lt;script&gt;<br />
+&nbsp; &nbsp; let minesCount = 3;<br />
+&nbsp; &nbsp; let currentMinesIndex = 1;<br />
+&nbsp; &nbsp; const availableMines = [1, 3, 5, 7];<br />
+&nbsp; &nbsp; const minesCountElement = document.getElementById(&#39;mines-count&#39;);<br />
+&nbsp; &nbsp; const gameGrid = document.getElementById(&#39;game-grid&#39;);<br />
+&nbsp; &nbsp; const cells = [];<br />
+&nbsp; &nbsp; const translations = {<br />
+&nbsp; &nbsp; &nbsp; ru: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; header: &#39;MINES&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; showStars: &#39;ПОЛУЧИТЬ СИГНАЛ&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; chooseLanguage: &#39;Выберите язык&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; minesCount: &#39;3&#39;<br />
+&nbsp; &nbsp; &nbsp; },<br />
+&nbsp; &nbsp; &nbsp; en: {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; header: &#39;MINES&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; showStars: &#39;GET SIGNAL&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; chooseLanguage: &#39;Choose language&#39;,<br />
+&nbsp; &nbsp; &nbsp; &nbsp; minesCount: &#39;3&#39;<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; };</p>
+
+<p>&nbsp; &nbsp; function selectLang(lang) {<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;language-modal&#39;).style.display = &#39;none&#39;;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;header-text&#39;).textContent = translations[lang].header;<br />
+&nbsp; &nbsp; &nbsp; document.getElementById(&#39;get-signal&#39;).textContent = translations[lang].showStars;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; function initGameGrid() {<br />
+&nbsp; &nbsp; &nbsp; gameGrid.innerHTML = &#39;&#39;;<br />
+&nbsp; &nbsp; &nbsp; cells.length = 0;<br />
+&nbsp; &nbsp; &nbsp; for (let i = 0; i &lt; 25; i++) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; const cell = document.createElement(&#39;div&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; cell.className = &#39;cell&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; cells.push(cell);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; gameGrid.appendChild(cell);<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; function updateMinesCount() {<br />
+&nbsp; &nbsp; &nbsp; minesCount = availableMines[currentMinesIndex];<br />
+&nbsp; &nbsp; &nbsp; minesCountElement.textContent = minesCount;<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; function generateSignal() {<br />
+&nbsp; &nbsp; &nbsp; cells.forEach(cell =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; cell.textContent = &#39;&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; cell.classList.remove(&#39;revealed&#39;);<br />
+&nbsp; &nbsp; &nbsp; });<br />
+&nbsp; &nbsp; &nbsp; const mineIndices = new Set();<br />
+&nbsp; &nbsp; &nbsp; while (mineIndices.size &lt; minesCount) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; mineIndices.add(Math.floor(Math.random() * 25));<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; &nbsp; const safeCells = Array.from({ length: 25 }, (_, i) =&gt; i).filter(i =&gt; !mineIndices.has(i));<br />
+&nbsp; &nbsp; &nbsp; const revealedSafe = safeCells.sort(() =&gt; Math.random() - 0.5).slice(0, 5);<br />
+&nbsp; &nbsp; &nbsp; revealedSafe.forEach((i, index) =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; setTimeout(() =&gt; {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; const cell = cells[i];<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cell.textContent = &#39;★&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cell.style.color = &#39;#FFD60A&#39;;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; cell.classList.add(&#39;revealed&#39;);<br />
+&nbsp; &nbsp; &nbsp; &nbsp; }, index * 200);<br />
+&nbsp; &nbsp; &nbsp; });<br />
+&nbsp; &nbsp; }</p>
+
+<p>&nbsp; &nbsp; document.getElementById(&#39;decrease-mines&#39;).addEventListener(&#39;click&#39;, () =&gt; {<br />
+&nbsp; &nbsp; &nbsp; if (currentMinesIndex &gt; 0) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; currentMinesIndex--;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; updateMinesCount();<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; });</p>
+
+<p>&nbsp; &nbsp; document.getElementById(&#39;increase-mines&#39;).addEventListener(&#39;click&#39;, () =&gt; {<br />
+&nbsp; &nbsp; &nbsp; if (currentMinesIndex &lt; availableMines.length - 1) {<br />
+&nbsp; &nbsp; &nbsp; &nbsp; currentMinesIndex++;<br />
+&nbsp; &nbsp; &nbsp; &nbsp; updateMinesCount();<br />
+&nbsp; &nbsp; &nbsp; }<br />
+&nbsp; &nbsp; });</p>
+
+<p>&nbsp; &nbsp; document.getElementById(&#39;get-signal&#39;).addEventListener(&#39;click&#39;, generateSignal);</p>
+
+<p>&nbsp; &nbsp; initGameGrid();<br />
+&nbsp; &nbsp; updateMinesCount();<br />
+&nbsp; &lt;/script&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;</p>
+</body>
+</html>
